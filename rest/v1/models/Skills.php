@@ -4,6 +4,7 @@ class Skills {
     public $skills_aid;
     public $skills_title;
     public $skills_image;
+    public $skills_is_active;
     public $skills_datetime;
     public $skills_created;
     
@@ -24,16 +25,19 @@ class Skills {
             $sql= "insert into {$this->tblSkills} ";
             $sql .= "( skills_title, ";
             $sql .= "skills_image,";
+            $sql .= "skills_is_active,";
             $sql .= "skills_created,";
             $sql .= "skills_datetime ) values (";
             $sql .= ":skills_title,";
             $sql .= ":skills_image,";
+            $sql .= ":skills_is_active,";
             $sql .= ":skills_created,";
             $sql .= ":skills_datetime )";
             $query = $this->connection->prepare($sql);
             $query->execute([
                 "skills_title" => $this->skills_title,
                 "skills_image" => $this->skills_image,
+                "skills_is_active" => $this->skills_is_active,
                 "skills_created" => $this->skills_created,
                 "skills_datetime" => $this->skills_datetime,
             ]);
@@ -50,6 +54,7 @@ class Skills {
         try {
             $sql = "select * ";
             $sql .= "from {$this->tblSkills} ";
+            $sql .= "order by skills_is_active desc ";
             $query = $this->connection->query($sql);
         } catch (PDOException $ex) {
             $query = false;

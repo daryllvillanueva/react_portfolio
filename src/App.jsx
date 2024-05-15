@@ -7,6 +7,11 @@ import Projects from "./components/pages/developer/portfolio/projects/Projects"
 import Skills from "./components/pages/developer/portfolio/skills/Skills"
 import Certs from "./components/pages/developer/portfolio/certs/Certs"
 import Contact from "./components/pages/developer/portfolio/contact/Contact"
+import DashSkills from "./components/pages/developer/dashboard/skills/DashSkills"
+import DashServices from "./components/pages/developer/dashboard/services/DashServices"
+import DashContact from "./components/pages/developer/dashboard/contact/DashContact"
+import DashCerts from "./components/pages/developer/dashboard/certs/DashCerts"
+
 
 
 function App() {
@@ -17,9 +22,13 @@ function App() {
       <StoreProvider> 
         <Router>
           <Routes>
-            <Route path="/portfolio" element={<Portfolio/>}/>
+            <Route path="/dashboard/projects" element={<Portfolio/>}/>
+            <Route path="/dashboard/services" element={<DashServices/>}/>
+            <Route path="/dashboard/skills" element={<DashSkills/>}/>
+            <Route path="/dashboard/certs" element={<DashCerts/>}/>
+            <Route path="/dashboard/contact" element={<DashContact/>}/>
             {/* UI */}
-            <Route path="/home" element={<Home/>}/>
+            <Route path="/portfolio" element={<Home/>}/>
             <Route path="/project" element={<Projects/>}/>
             <Route path="/skills" element={<Skills/>}/>
             <Route path="/certs" element={<Certs/>}/>

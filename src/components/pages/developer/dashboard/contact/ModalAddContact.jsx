@@ -12,7 +12,7 @@ import { queryData } from '../../../../helpers/queryData'
 import useUploadPhoto from '../../../../custom-hook/useUploadPhoto'
 import { devBaseImgUrl } from '../../../../helpers/functions-general'
 
-const ModalAddPortfolio = ({itemEdit}) => {
+const ModalAddContact = ({itemEdit}) => {
     const {store, dispatch} = React.useContext(StoreContext)
     const handleClose = () => dispatch(setIsAdd(false));
 
@@ -90,10 +90,10 @@ const ModalAddPortfolio = ({itemEdit}) => {
                                 {photo || (itemEdit && itemEdit.portfolio_image !== "") ? ( 
                                         <img src={photo ? URL.createObjectURL(photo) // preview 
                                         : itemEdit.portfolio_image // check db
-                                        ? devBaseImgUrl + "/project/" + itemEdit.portfolio_image
+                                        ? devBaseImgUrl + "/" + itemEdit.portfolio_image
                                         : null
                                     }
-                                    alt="Photo" className="rounded-md h-[250px] max-h-[250px] w-full object-cover object-center m-auto bg-white"/>
+                                    alt="Photo" className="rounded-tr-md rounded-tl-md h-[200px] max-h-[200px] w-full object-cover object-center m-auto"/>
                                 ) : (
                                         <span className="min-h-20 flex items-center justify-center">
                                         <span className="text-accent mr-1">Drag & Drop</span>{" "}
@@ -120,7 +120,7 @@ const ModalAddPortfolio = ({itemEdit}) => {
                                     title="Upload photo"
                                     onChange={(e) => handleChangePhoto(e)}
                                     onDrop={(e) => handleChangePhoto(e)}
-                                    className="opacity-0 absolute right-0 bottom-0 left-0 m-auto cursor-pointer h-full"
+                                    className="opacity-0 absolute right-0 bottom-0 left-0 m-auto cursor-pointer h-full "
                                 /> 
                             </div>
 
@@ -179,7 +179,7 @@ const ModalAddPortfolio = ({itemEdit}) => {
   )
 }
 
-export default ModalAddPortfolio
+export default ModalAddContact
 
 
 // no picture in the thumbnail

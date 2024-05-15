@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { skillsImg } from './data';
 import { baseImgUrl, devBaseImgUrl } from '../../../../helpers/functions-general';
 import useQueryData from '../../../../custom-hook/useQueryData';
 import SpinnerFetching from '../../../../partials/spinners/SpinnerFetching';

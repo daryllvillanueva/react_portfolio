@@ -6,18 +6,21 @@ import Logo from './svg/Logo'
 const Navigation = () => {
   return (
     <aside className='px-4 py-6 w-[250px] text-primary h-screen border-r border-line'>
-        <div className='flex items-center gap-2'>
-          <Logo/>
-          <h1 className='mb-0'>Portfolio</h1>
-        </div>
+        <Link to="/portfolio">
+          <div className='flex items-center gap-2'>
+            <Logo/>
+            <h1 className='mb-0'>Portfolio</h1>
+          </div>
+        </Link>
         
         <ul className='nav'>
-            <li className='nav-link active'><Link to="#">Dashboard</Link></li>
-            <li className='nav-link'><Link to="#">Projects</Link></li>
-            <li className='nav-link'><Link to="#">Skills</Link></li>
-            <li className='nav-link'><Link to="#">Certificates</Link></li>
-            <li className='nav-link'><Link to="#">Contact</Link></li>
-            <li className='nav-link'><Link to="#">Settings</Link></li>
+            <li className='nav-link'><Link to="/portfolio">Portfolio</Link></li>
+            <li className='nav-link active'><Link to="/dashboard/services">Services</Link></li>
+            <li className='nav-link'><Link to="/dashboard/projects">Projects</Link></li>
+            <li className='nav-link '><Link to="/dashboard/skills">Skills</Link></li>
+            <li className='nav-link'><Link to="/dashboard/certs">Certificates</Link></li>
+            <li className='nav-link'><Link to="/dashboard/contact">Contact</Link></li>
+            {/* <li className='nav-link'><Link to="/dashboard/settings">Settings</Link></li> */}
         </ul>
     </aside>
   )

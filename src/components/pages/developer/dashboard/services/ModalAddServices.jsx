@@ -12,7 +12,7 @@ import { queryData } from '../../../../helpers/queryData'
 import useUploadPhoto from '../../../../custom-hook/useUploadPhoto'
 import { devBaseImgUrl } from '../../../../helpers/functions-general'
 
-const ModalAddPortfolio = ({itemEdit}) => {
+const ModalAddServices = ({itemEdit}) => {
     const {store, dispatch} = React.useContext(StoreContext)
     const handleClose = () => dispatch(setIsAdd(false));
 
@@ -22,25 +22,22 @@ const ModalAddPortfolio = ({itemEdit}) => {
     );
 
     const initVal = {
-        portfolio_title: itemEdit ? itemEdit.portfolio_title : "",
-        portfolio_category: itemEdit ? itemEdit.portfolio_category : "",
-        portfolio_image: itemEdit ? itemEdit.portfolio_image : "",
-        portfolio_description: itemEdit ? itemEdit.portfolio_description : "",
-        portfolio_publish_date: itemEdit ? itemEdit.portfolio_publish_date : "",
+        services_title: itemEdit ? itemEdit.services_title : "",
+        services_image: itemEdit ? itemEdit.services_image : "",
     }
 
     const queryClient = useQueryClient();
     const mutation = useMutation({
         mutationFn: (values) =>
         queryData(
-            itemEdit ? `/v1/portfolio/${itemEdit.portfolio_aid}` : '/v1/portfolio',
+            itemEdit ? `/v1/services/${itemEdit.services_aid}` : '/v1/services',
             itemEdit ? "put" : "post",
             values
         ),
         // ;
 
         onSuccess: (data) => {
-        queryClient.invalidateQueries({ queryKey: ["portfolio"] });
+        queryClient.invalidateQueries({ queryKey: ["services"] });
         if (data.success) {
             dispatch(setIsAdd(false));
             dispatch(setSuccess(true));
@@ -54,18 +51,14 @@ const ModalAddPortfolio = ({itemEdit}) => {
     });
 
     const yupSchema = Yup.object({
-        portfolio_title: Yup.string().required("Required"),
-        portfolio_category: Yup.string().required("Required"),
-        portfolio_image: Yup.string().required("Required"),
-        portfolio_description: Yup.string().required("Required"),
-        portfolio_publish_date: Yup.string().required("Required"),
+        services_title: Yup.string().required("Required"),
     })
 
   return (
     <ModalWrapper>
         <div className="main-modal w-[300px] bg-secondary text-content h-full">
             <div className="modal-header p-4 relative"> 
-                <h2>New Student</h2>
+                <h2>New Services</h2>
                 <button className='absolute top-[23px] right-4' onClick={handleClose}><LiaTimesSolid/></button>
             </div>
             <div className="modal-body p-4">
@@ -75,25 +68,25 @@ const ModalAddPortfolio = ({itemEdit}) => {
                     onSubmit={async (values) => {
                         uploadPhoto()
                         mutation.mutate({...values, 
-                            portfolio_image:
-                            (itemEdit && itemEdit.portfolio_image === "") || photo
+                            services_image:
+                            (itemEdit && itemEdit.services_image === "") || photo
                               ? photo === null
-                                ? itemEdit.portfolio_image
+                                ? itemEdit.services_image
                                 : photo.name
-                              : values.portfolio_image,})
+                              : values.services_image,})
                     }}
                 >
                     <Form action="" className='flex flex-col h-[calc(100vh-110px)]'>
                         <div className='grow overflow-y-auto'>
                             
                             <div className="input-wrap">
-                                {photo || (itemEdit && itemEdit.portfolio_image !== "") ? ( 
+                                {photo || (itemEdit && itemEdit.services_image !== "") ? ( 
                                         <img src={photo ? URL.createObjectURL(photo) // preview 
-                                        : itemEdit.portfolio_image // check db
-                                        ? devBaseImgUrl + "/project/" + itemEdit.portfolio_image
+                                        : itemEdit.services_image // check db
+                                        ? devBaseImgUrl + "/services/" + itemEdit.services_image
                                         : null
                                     }
-                                    alt="Photo" className="rounded-md h-[250px] max-h-[250px] w-full object-cover object-center m-auto bg-white"/>
+                                    alt="Photo" className="rounded-tr-md rounded-tl-md h-[200px] max-h-[200px] w-full object-cover object-center m-auto"/>
                                 ) : (
                                         <span className="min-h-20 flex items-center justify-center">
                                         <span className="text-accent mr-1">Drag & Drop</span>{" "}
@@ -103,7 +96,7 @@ const ModalAddPortfolio = ({itemEdit}) => {
                                     )}
 
                                 {(photo !== null ||
-                                    (itemEdit && itemEdit.portfolio_image !== "")) && (
+                                    (itemEdit && itemEdit.services_image !== "")) && (
                                         <span className="min-h-10 flex items-center justify-center">
                                             <span className="text-accent mr-1">Drag & Drop</span>{" "} photo here or{" "}
                                             <span className="text-accent ml-1">Browse</span>
@@ -120,7 +113,7 @@ const ModalAddPortfolio = ({itemEdit}) => {
                                     title="Upload photo"
                                     onChange={(e) => handleChangePhoto(e)}
                                     onDrop={(e) => handleChangePhoto(e)}
-                                    className="opacity-0 absolute right-0 bottom-0 left-0 m-auto cursor-pointer h-full"
+                                    className="opacity-0 absolute right-0 bottom-0 left-0 m-auto cursor-pointer h-full "
                                 /> 
                             </div>
 
@@ -128,15 +121,7 @@ const ModalAddPortfolio = ({itemEdit}) => {
                                 <InputText
                                     label="Title"
                                     type="text"
-                                    name="portfolio_title"
-                                />
-                            </div>
-
-                            <div className="input-wrap">
-                                <InputText
-                                    label="Category"
-                                    type="text"
-                                    name="portfolio_category"
+                                    name="services_title"
                                 />
                             </div>
 
@@ -145,23 +130,6 @@ const ModalAddPortfolio = ({itemEdit}) => {
                                     label="Image"
                                     type="text"
                                     name="portfolio_image"
-                                />
-                            </div>
-
-                            <div className="input-wrap">
-                                <InputTextArea
-                                    label="Description"
-                                    type="text"
-                                    name="portfolio_description"
-                                    className='h-[10rem] resize-none'
-                                />
-                            </div>
-
-                            <div className="input-wrap">
-                                <InputText
-                                    label="Publish Date"
-                                    type="text"
-                                    name="portfolio_publish_date"
                                 />
                             </div>
 
@@ -179,7 +147,7 @@ const ModalAddPortfolio = ({itemEdit}) => {
   )
 }
 
-export default ModalAddPortfolio
+export default ModalAddServices
 
 
 // no picture in the thumbnail
