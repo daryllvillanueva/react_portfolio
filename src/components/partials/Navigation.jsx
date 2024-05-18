@@ -5,7 +5,7 @@ import Logo from './svg/Logo'
 
 const Navigation = () => {
   return (
-    <aside className='px-4 py-6 w-[250px] text-primary h-screen border-r border-line'>
+    <div className='px-4 py-6 w-[250px] text-primary h-screen border-r border-line'>
         <Link to="/portfolio">
           <div className='flex items-center gap-2'>
             <Logo/>
@@ -19,10 +19,9 @@ const Navigation = () => {
             <li className='nav-link'><Link to="/dashboard/projects">Projects</Link></li>
             <li className='nav-link '><Link to="/dashboard/skills">Skills</Link></li>
             <li className='nav-link'><Link to="/dashboard/certs">Certificates</Link></li>
-            <li className='nav-link'><Link to="/dashboard/contact">Contact</Link></li>
             {/* <li className='nav-link'><Link to="/dashboard/settings">Settings</Link></li> */}
         </ul>
-    </aside>
+    </div>
   )
 }
 

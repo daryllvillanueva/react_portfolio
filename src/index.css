@@ -187,12 +187,8 @@
         @apply flex flex-col gap-10 items-center mt-14 text-white
     }
 
-    .nav-flex {
-        @apply flex gap-2 items-center text-2xl hover:text-blue-600 hover:font-extrabold
-    }
-
-    .nav-flex.active {
-        @apply text-blue-600/65 font-extrabold
+    .navigation {
+        @apply text-2xl hover:text-blue-600 hover:font-extrabold
     }
 
     .contact-me {

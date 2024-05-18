@@ -29,10 +29,6 @@ function App() {
             <Route path="/dashboard/contact" element={<DashContact/>}/>
             {/* UI */}
             <Route path="/portfolio" element={<Home/>}/>
-            <Route path="/project" element={<Projects/>}/>
-            <Route path="/skills" element={<Skills/>}/>
-            <Route path="/certs" element={<Certs/>}/>
-            <Route path="/contact" element={<Contact/>}/>
           </Routes>
         </Router>
       </StoreProvider>
