@@ -3,6 +3,7 @@ export default {
   content: ["./src/**/*.{js,jsx}"],
   theme: {
     extend: {
+      
       colors: {
         primary: 'rgb(var(--primary) / <alpha-value>)',
         secondary: 'rgb(var(--secondary) / <alpha-value>)',
@@ -52,7 +53,7 @@ export default {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(100%)" },
         },
-
+        
       },
       
       animation: {

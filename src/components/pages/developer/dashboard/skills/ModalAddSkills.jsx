@@ -124,14 +124,6 @@ const ModalAddSkills = ({itemEdit}) => {
                                 />
                             </div>
 
-                            <div className="input-wrap">
-                                <InputText
-                                    label="Image"
-                                    type="text"
-                                    name="portfolio_image"
-                                />
-                            </div>
-
                         </div>
 
                         <div className="form-action">

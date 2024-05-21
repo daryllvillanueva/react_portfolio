@@ -13,9 +13,16 @@ const ModalViewProject = ({info}) => {
     <>
         <ModalWrapper position="center">
             <button onClick={handleClose}><FaTimesCircle className='text-white text-4xl absolute top-1/4 right-1/4'/></button>
-            <h1 className='text-3xl text-white font-semibold'>{info.portfolio_title}</h1>
-            <div className='flex'>
-                <img src={`${devBaseImgUrl}/project/${info.portfolio_image}`}alt="" className='object-contain'/>
+            <div className='flex flex-col gap-2 w-[40rem]'>
+              <div className='overflow-hidden'>
+                <img src={`${devBaseImgUrl}/project/${info.portfolio_image}`}alt="" className='object-cover size-[20rem] mx-auto'/>
+              </div>       
+              <h1 className='text-3xl text-white font-semibold'>{info.portfolio_title}</h1>
+              <div className='flex justify-between'>
+                <p>{info.portfolio_category}</p>
+                <p>{info.portfolio_publish_date}</p>
+              </div>               
+              <h1 className='truncate'>{info.portfolio_description}</h1>
             </div>
         </ModalWrapper>
     </>

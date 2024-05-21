@@ -215,6 +215,10 @@
         }
     }
 
+    .desc {
+        @apply max-w-[36rem] w-full text-center mb-0 text-2xl leading-10 !important
+    }
+
 }
 
 @layer utilities {

@@ -54,6 +54,13 @@ export const setError = (val) => {
       payload: val,
     };
   };
+
+  export const setIsLogin = (val) => {
+    return {
+      type: "IS_LOGIN",
+      payload: val,
+    };
+  };
   
   export const setIsDelete = (val) => {
     return {
@@ -80,5 +87,14 @@ export const setError = (val) => {
     return {
       type: "IS_ACTIVE",
       payload: val,
+    };
+  };
+
+  export const setCredentials = (data) => {
+    return {
+      type: "CREDENTIALS",
+      payload: {
+        data,
+      },
     };
   };

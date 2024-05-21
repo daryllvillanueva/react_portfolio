@@ -23,7 +23,6 @@ const ModalAddServices = ({itemEdit}) => {
 
     const initVal = {
         services_title: itemEdit ? itemEdit.services_title : "",
-        services_image: itemEdit ? itemEdit.services_image : "",
     }
 
     const queryClient = useQueryClient();
@@ -122,14 +121,6 @@ const ModalAddServices = ({itemEdit}) => {
                                     label="Title"
                                     type="text"
                                     name="services_title"
-                                />
-                            </div>
-
-                            <div className="input-wrap">
-                                <InputText
-                                    label="Image"
-                                    type="text"
-                                    name="portfolio_image"
                                 />
                             </div>
 

@@ -15,10 +15,11 @@ const Navigation = () => {
         
         <ul className='nav'>
             <li className='nav-link'><Link to="/portfolio">Portfolio</Link></li>
-            <li className='nav-link active'><Link to="/dashboard/services">Services</Link></li>
-            <li className='nav-link'><Link to="/dashboard/projects">Projects</Link></li>
-            <li className='nav-link '><Link to="/dashboard/skills">Skills</Link></li>
-            <li className='nav-link'><Link to="/dashboard/certs">Certificates</Link></li>
+            <li className='nav-link active'><Link to="/user">User</Link></li>
+            <li className='nav-link '><Link to="/services">Services</Link></li>
+            <li className='nav-link'><Link to="/projects">Projects</Link></li>
+            <li className='nav-link '><Link to="/skills">Skills</Link></li>
+            <li className='nav-link'><Link to="/certs">Certificates</Link></li>
             {/* <li className='nav-link'><Link to="/dashboard/settings">Settings</Link></li> */}
         </ul>
     </div>
